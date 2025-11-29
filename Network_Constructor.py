@@ -180,7 +180,8 @@ class Construct:
     # Cross-entropy
     def Cross_entropy(self, X_point, y_point):
         logits = self.forward(X_point)  # First
-        dif = y_point - (np.exp(logits) / (np.exp(logits).sum()))
+        p = (np.exp(logits) / (np.exp(logits).sum()))
+        dif = y_point - p
         del_ = self.del_()  # Second (Order is important !!!)
         return dif * del_
 
