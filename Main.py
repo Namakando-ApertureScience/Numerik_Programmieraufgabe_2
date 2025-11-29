@@ -116,4 +116,4 @@ elif input_ == 'm':
     train_full_bath(X_train, y_train, X_test, y_test, network, iterations, batch_size)  # DATA SWITCHED !!!!!!!!!
 
 else:
-    raise AssertionError("Error! Invalid input!")
+    raise Exception("Error! Invalid input!")
