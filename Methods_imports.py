@@ -74,8 +74,8 @@ def acc(func_, X_, y_):
 
 
 def train_full_bath(X_train_, y_train_, X_test_, y_test_, network, iterations, batch_size):
-    print(f"\nLength of training set: {len(X_train_)} \n"
-          f"Length of testing set: {len(X_test_)}", end="\n\n")
+    print(f"\nSize of training set: {len(X_train_)} \n"
+          f"Size of testing set: {len(X_test_)}", end="\n\n")
 
     epochs, training_acc, testing_acc, rand_acc = [], [], [], []
     min_, max_ = [float("inf"), 0], [0, 0]
