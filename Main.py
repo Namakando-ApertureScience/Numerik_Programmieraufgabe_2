@@ -31,7 +31,7 @@ if input_ == 's':
     #######################################
 
     SEED = 42
-    iterations = 200
+    epochs = 200
     batch_size = 5
     test_size = 0.2
 
@@ -54,7 +54,7 @@ if input_ == 's':
     X_train, y_train, X_test, y_test = (np.array(X_train), np.array(y_train),
                                         np.array(X_test), np.array(y_test))
 
-    train_full_bath(X_train, y_train, X_test, y_test, network, iterations, batch_size)
+    train_full_bath(X_train, y_train, X_test, y_test, network, epochs, batch_size)
 
 elif input_ == 'm':
 
@@ -83,7 +83,7 @@ elif input_ == 'm':
     ################################
 
     SEED = 42
-    iterations = 300
+    epochs = 300
     batch_size = 5
     main_subpath = "/home/namakando/PycharmProjects/Numerik_Programmieraufgabe_2/MNIST/"
 
@@ -113,7 +113,7 @@ elif input_ == 'm':
     X_train, y_train, X_test, y_test = (np.array(X_train), np.array(y_train_filtered),
                                         np.array(X_test), np.array(y_test_filtered))
 
-    train_full_bath(X_train, y_train, X_test, y_test, network, iterations, batch_size)  # DATA SWITCHED !!!!!!!!!
+    train_full_bath(X_train, y_train, X_test, y_test, network, epochs, batch_size)  # DATA SWITCHED !!!!!!!!!
 
 else:
     raise Exception("Error! Invalid input!")
