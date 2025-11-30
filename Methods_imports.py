@@ -73,14 +73,14 @@ def acc(func_, X_, y_):
     return met.accuracy_score(np.array([func_(x) for x in X_]), y_)
 
 
-def train_full_bath(X_train_, y_train_, X_test_, y_test_, network, iterations, batch_size):
+def train_full_bath(X_train_, y_train_, X_test_, y_test_, network, epochs, batch_size):
     print(f"\nSize of training set: {len(X_train_)} \n"
           f"Size of testing set: {len(X_test_)}", end="\n\n")
 
-    epochs, training_acc, testing_acc, rand_acc = [], [], [], []
+    epochs_, training_acc, testing_acc, rand_acc = [], [], [], []
     min_, max_ = [float("inf"), 0], [0, 0]
 
-    for i in range(iterations):
+    for i in range(epochs):
         func = lambda x: network.forward(x).argmax()
         rd = lambda x: np.random.choice(3)
 
@@ -88,7 +88,7 @@ def train_full_bath(X_train_, y_train_, X_test_, y_test_, network, iterations, b
         comp_test = acc(func, X_test_, y_test_)
         comp_rand = acc(rd, X_test_, y_test_)
 
-        epochs.append(i)
+        epochs_.append(i)
         training_acc.append(comp_train * 1e2)
         testing_acc.append(comp_test * 1e2)
         rand_acc.append(comp_rand * 1e2)
@@ -108,7 +108,7 @@ def train_full_bath(X_train_, y_train_, X_test_, y_test_, network, iterations, b
         Data0, Data1 = X_train_[indices], np.array([one_hot[y] for y in y_train_[indices]])
         network.Optimize(Data0, Data1)
 
-    plot(epochs, training_acc, testing_acc, rand_acc, min_, max_)
+    plot(epochs_, training_acc, testing_acc, rand_acc, min_, max_)
     confusion(y_true=[label_map_[y] for y in y_test_],
               y_pred=[label_map_[network.forward(x).argmax()] for x in X_test_],
               classes=[1, 5, 7])
