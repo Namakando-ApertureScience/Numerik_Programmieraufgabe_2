@@ -99,7 +99,7 @@ def train_full_bath(X_train_, y_train_, X_test_, y_test_, network, iterations, b
         if max_[0] < 1e2 * comp_test:
             max_[0], max_[1] = comp_test * 1e2, i
 
-        print(f"Iterations: {i + 1}/{iterations} |"
+        print(f"Epochs: {i + 1}/{iterations} |"
               f"Training accuracy: {comp_train * 1e2:.1f}% |"
               f"Testing accuracy: {comp_test * 1e2:.1f}% |"
               f"Random of test accuracy: {comp_rand * 1e2:.1f}%", end="\r")
