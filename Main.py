@@ -96,6 +96,7 @@ elif input_ == 'm':
         load_mnist_labels(main_subpath + "t10k-labels-idx1-ubyte")
     )
 
+    # Flattening
     X_train, X_test = (X_train.reshape([len(X_train), 28 ** 2]),
                        X_test.reshape([len(X_test), 28 ** 2]))
 
@@ -113,7 +114,7 @@ elif input_ == 'm':
     X_train, y_train, X_test, y_test = (np.array(X_train), np.array(y_train_filtered),
                                         np.array(X_test), np.array(y_test_filtered))
 
-    train_full_bath(X_train, y_train, X_test, y_test, network, epochs, batch_size)  # DATA SWITCHED !!!!!!!!!
+    train_full_bath(X_train, y_train, X_test, y_test, network, epochs, batch_size)
 
 else:
     raise Exception("Error! Invalid input!")
